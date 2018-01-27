@@ -302,7 +302,6 @@ extension CreatePostController: UIImagePickerControllerDelegate, UINavigationCon
                     
                     picker.modalPresentationStyle = .popover
                     picker.popoverPresentationController?.delegate = self
-                    //                    picker.popoverPresentationController?.sourceView = self.view
                     self.present(picker, animated: true, completion: nil)
                     
                 } else {
@@ -329,7 +328,6 @@ extension CreatePostController: UIImagePickerControllerDelegate, UINavigationCon
             
             alertController.modalPresentationStyle = .popover
             alertController.popoverPresentationController?.delegate = self
-            //            alertController.popoverPresentationController?.sourceView = view
             present(alertController, animated: true, completion: nil)
             
             

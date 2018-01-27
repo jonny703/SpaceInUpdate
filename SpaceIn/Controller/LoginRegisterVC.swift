@@ -273,7 +273,6 @@ class LoginRegisterVC : UIViewController {
                     let geoFireRef = Database.database().reference().child("users").child(uid).child("user_location")
                     let geoFire = GeoFire(firebaseRef: geoFireRef)
                     
-//                    Global.currentUserLocation = LocationManager.sharedInstance.userLocation!
                     geoFire?.setLocation(Global.currentUserLocation, forKey: uid)
                     
                     

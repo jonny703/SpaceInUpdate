@@ -304,56 +304,6 @@ extension InvitationController {
 
                                 
                             })
-                            
-//                            let values = ["pushKey": pushKey] as [String: AnyObject]
-//                            pushRef.updateChildValues(values) { (error, pushRef) in
-//                                
-//                                if error != nil {
-//                                    print(error!)
-//                                    
-//                                    self.stopSpinner()
-//                                    self.showErrorAlert(message: "Something went wrong! Try again later")
-//                                    self.dismissController()
-//                                    
-//                                    return
-//                                }
-//                                
-//                                var message: String
-//                                
-//                                
-//                                if actionType == PushAction.accept.rawValue {
-//                                    message = "Your invitaion was accepted"
-//                                } else {
-//                                    message = "Your invitaion was declined"
-//                                }
-//                                
-//                                if let username = SpaceInUser.current?.name {
-//                                    message = message + " by " + username
-//                                }
-//                                
-//                                let notificationContent = [
-//                                    "include_player_ids": [pushToken],
-//                                    "contents": ["en": message], // Required unless "content_available": true or "template_id" is set
-//                                    "headings": ["en": "Spacein Notification"],
-//                                    "subtitle": ["en": "Request"],
-//                                    
-//                                    "ios_badgeType": "Increase",
-//                                    "ios_badgeCount": 1,
-//                                    "data": ["fromId": self.push!.toId!, "action": action, "pushId": self.push!.pushId!]
-//                                    ] as [String : Any]
-//                                
-//                                OneSignal.postNotification(notificationContent)
-//                                
-//                                if actionType == PushAction.accept.rawValue {
-//                                    
-//                                    self.handleAcceptWithFirebasedatabase()
-//                                } else {
-//                                    self.stopSpinner()
-//                                    self.dismissController()
-//                                }
-//                                
-//                                
-//                            }
                         }
                         
                     }

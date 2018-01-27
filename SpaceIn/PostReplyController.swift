@@ -14,12 +14,7 @@ import AVFoundation
 class PostReplyController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     let cellId = "cellId"
-    var postUser: SpaceUser? {
-        didSet {
-//            fetchData()
-        }
-        
-    }
+    var postUser: SpaceUser?
     var posts = [Post]()
     var currentPost: Post?
     
@@ -86,7 +81,6 @@ class PostReplyController: UIViewController, UIImagePickerControllerDelegate, UI
         tv.isEditable = false
         tv.textAlignment = .center
         tv.isUserInteractionEnabled = false
-        //        tv.backgroundColor = .blue
         return tv
         
     }()
@@ -108,8 +102,6 @@ class PostReplyController: UIViewController, UIImagePickerControllerDelegate, UI
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        //        view.layer.cornerRadius = 16
-        //        view.layer.masksToBounds = true
         return view
         
     }()
@@ -133,10 +125,6 @@ class PostReplyController: UIViewController, UIImagePickerControllerDelegate, UI
         
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        //        imageView.layer.cornerRadius = 16
-        //        imageView.layer.masksToBounds = true
-        //        imageView.contentMode = .scaleAspectFill
-        //        imageView.backgroundColor = UIColor.brown
         
         imageView.isUserInteractionEnabled = true
         
@@ -252,8 +240,6 @@ extension PostReplyController: UICollectionViewDelegateFlowLayout, UICollectionV
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "hh:mm a"
-            
-            //                timeLabel.text = timestampeDate.description
             cell.timeLabel.text = dateFormatter.string(from: timestampeDate as Date)
             cell.timeLabel.text = returnLeftTimedateformatter(date: seconds)
             
@@ -456,7 +442,6 @@ extension PostReplyController {
     
         collectionView.dataSource = self
         collectionView.delegate = self
-        //        collectionView.keyboardDismissMode = .interactive
         view.addSubview(collectionView)
         
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
@@ -492,7 +477,6 @@ extension PostReplyController {
         
         containerProfileView.addSubview(postImageView)
         
-        //        messageImageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
         postImageView.rightAnchor.constraint(equalTo: containerProfileView.rightAnchor, constant: 0).isActive = true
         postImageView.leftAnchor.constraint(equalTo: containerProfileView.leftAnchor, constant: 65).isActive = true
         postImageView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -18).isActive = true
@@ -697,11 +681,6 @@ extension PostReplyController {
         //append properties dictionary onto values somehow??
         //key $0, value $1
         properties.forEach({values[$0] = $1})
-        
-        //        childRef.updateChildValues(values)
-        
-        
-        
         
         childRef.updateChildValues(values) { (error, ref) in
             
@@ -918,8 +897,6 @@ extension PostReplyController {
                 zoomingImageView.center = keyWindow.center
                 
             }, completion: { (completed) in
-                
-                //                zoomOutImageView.removeFromSuperview()
                 
             })
         }

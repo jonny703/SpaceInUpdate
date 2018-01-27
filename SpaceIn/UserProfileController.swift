@@ -125,6 +125,8 @@ class UserProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        handleReportEmail()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -193,7 +195,6 @@ extension UserProfileController {
         containerView.clipsToBounds = true
         
         setupCloseButton()
-//        setupSettingsButton()
         setupProfileImage()
         setupNameLabel()
         setupAgeLabel()
@@ -226,32 +227,6 @@ extension UserProfileController {
         
         closeButton.addTarget(self, action: #selector(closePressed), for: .touchUpInside)
     }
-    
-//    private func setupSettingsButton() {
-//        guard isUserProfile else {
-//            print("No need to set up settings button")
-//            return
-//        }
-//        
-//        let settingsButton = UIButton(asConstrainable: true, frame: CGRect.zero)
-//        let settingsImage = UIImage(named: AssetName.settingsButton.rawValue)
-//        settingsButton.setImage(settingsImage, for: .normal)
-//        settingsButton.imageView?.contentMode = .scaleAspectFit
-//        
-//        containerView.addSubview(settingsButton)
-//        
-//        let widthHeight: CGFloat = UserProfileController.closeButtonHeight
-//        let leftSidePadding: CGFloat = UserProfileController.closeButtonRightPadding / 2
-//        let topPadding: CGFloat = UserProfileController.closeButtonRightPadding / 2
-//        
-//        settingsButton.widthAnchor.constraint(equalToConstant: widthHeight).isActive = true
-//        settingsButton.heightAnchor.constraint(equalToConstant: widthHeight).isActive = true
-//        settingsButton.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: leftSidePadding).isActive = true
-//        settingsButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: topPadding).isActive = true
-//        
-////        settingsButton.addTarget(self, action: #selector(settingsPressed), for: .touchUpInside)
-//        settingsButton.isHidden = true
-//    }
     
     private func setupProfileImage() {
         
@@ -483,7 +458,7 @@ extension UserProfileController {
 extension UserProfileController {
     func handleReport() {
         
-        self.showErrorAlertWithOKCancel("Report this menber", message: "Are you sure to report this member?", action: { (action) in
+        self.showErrorAlertWithOKCancel("Report this menber", message: "Are you sure you want to report this member?", action: { (action) in
             
             self.handleReportEmail()
             
@@ -494,7 +469,7 @@ extension UserProfileController {
     
     
     func handleBlock() {
-        self.showErrorAlertWithOKCancel("Block this menber", message: "Are you sure to block this member?", action: { (action) in
+        self.showErrorAlertWithOKCancel("Block this menber", message: "Are you sure you want to block this member?", action: { (action) in
             self.handleBlockFireDB()
         }, completion: nil)
     }
@@ -545,12 +520,13 @@ extension UserProfileController: SKPSMTPMessageDelegate {
         
         guard let fromId = Auth.auth().currentUser?.uid else { return }
         guard let toId = self.userForProfile?.userId else { return }
+        guard let toEmail = self.userForProfile?.email else { return }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             
             let emailMessage = SKPSMTPMessage()
             emailMessage.fromEmail = "zhichaocaesar702@gmail.com"
-            emailMessage.toEmail = "juansedoza@gmail.com"
+            emailMessage.toEmail = "SpaceinUserAssistance@gmail.com"
             emailMessage.subject = "Spacein"
             emailMessage.relayHost = "smtp.gmail.com"
             emailMessage.requiresAuth = true
@@ -565,6 +541,27 @@ extension UserProfileController: SKPSMTPMessageDelegate {
             emailMessage.parts = [plainPart]
             emailMessage.send()
             
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        
+        let emailMessage = SKPSMTPMessage()
+        emailMessage.fromEmail = "SpaceinUserAssistance@gmail.com"
+        emailMessage.toEmail = toEmail
+        emailMessage.subject = "Spacein"
+        emailMessage.relayHost = "smtp.gmail.com"
+        emailMessage.requiresAuth = true
+        emailMessage.login = "SpaceinUserAssistance@gmail.com"
+        emailMessage.pass = "SpaceinUser"
+        emailMessage.wantsSecure = true
+        emailMessage.delegate = self
+        
+        let messageBody = "Thank you for taking a moment to report a user on Spacein. It is a great help us to have our own members assist us in keeping the Spacein teams as informative and constructive as possible. We are presently processing your report. Spacein."
+        
+        let plainPart: NSDictionary = [kSKPSMTPPartContentTypeKey: "text/plain", kSKPSMTPPartMessageKey: messageBody, kSKPSMTPPartContentTransferEncodingKey: "8bit"]
+        emailMessage.parts = [plainPart]
+        emailMessage.send()
+        
         })
         
         
@@ -910,19 +907,6 @@ extension UserProfileController {
                         }
                         
                     }, withCancel: nil)
-//                    pushRef.queryOrdered(byChild: "fromId").queryEqual(toValue: toId).observe(.childAdded, with: { (snapshot) in
-//                        
-//                        if let dictionary = snapshot.value as? [String: AnyObject] {
-//                            
-//                            let push = Push(dictionary: dictionary)
-//                            push.pushId = snapshot.key
-//                            if push.pushKey == 1 {
-//                                
-//                                wasAcceptedInvitaion = true
-//                            }
-//                        }
-//                        
-//                    }, withCancel: nil)
 
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {

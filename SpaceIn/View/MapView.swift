@@ -210,16 +210,12 @@ extension MapView {
         guard let visibleUserAnnotation = self.userAnnotation else {
             return
         }
-        
-        let coordinate = visibleUserAnnotation.coordinate
         self.removeUserPin()
-//        self.addUserPin(withCoordinate: coordinate)
     }
     
     fileprivate func setupUserPinBasedOnZoomType(zoomType: MapViewZoomType) {
         
         if zoomType == .zoomedOut {
-//            self.addUserPin(withCoordinate: self.coordinate)
         } else if zoomType != .leaveAlone{
             self.removeUserPin()
         }

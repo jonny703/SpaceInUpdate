@@ -27,7 +27,6 @@ class PostHistoryCell: UICollectionViewCell {
         tv.isEditable = false
         tv.textAlignment = .center
         tv.isUserInteractionEnabled = false
-        //        tv.backgroundColor = .blue
         return tv
         
     }()
@@ -49,8 +48,6 @@ class PostHistoryCell: UICollectionViewCell {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        //        view.layer.cornerRadius = 16
-        //        view.layer.masksToBounds = true
         return view
         
     }()
@@ -74,14 +71,6 @@ class PostHistoryCell: UICollectionViewCell {
         
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.layer.cornerRadius = 16
-//        imageView.layer.masksToBounds = true
-//        imageView.contentMode = .scaleAspectFill
-        //        imageView.backgroundColor = UIColor.brown
-        
-//        imageView.isUserInteractionEnabled = true
-//        
-//        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomTap)))
         
         return imageView
         
@@ -103,7 +92,6 @@ class PostHistoryCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //        self.backgroundColor = .red
         
         addSubview(bubbleView)
         addSubview(textView)
@@ -112,7 +100,6 @@ class PostHistoryCell: UICollectionViewCell {
         
         addSubview(postImageView)
         
-        //        messageImageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
         postImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -DEVICE_WIDTH * 0.2).isActive = true
         postImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: DEVICE_WIDTH * 0.3).isActive = true
         postImageView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -18).isActive = true

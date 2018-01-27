@@ -29,7 +29,6 @@ class ChatMessageCell: UICollectionViewCell {
         let button = UIButton(type: UIButtonType.system)
         let image = UIImage(named: AssetName.playButton.rawValue)
         button.setBackgroundImage(image, for: .normal)
-//        button.setTitle("play", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         button.addTarget(self, action: #selector(handlePlay), for: .touchUpInside)
@@ -85,7 +84,6 @@ class ChatMessageCell: UICollectionViewCell {
         tv.isEditable = false
         tv.textAlignment = .center
         tv.isUserInteractionEnabled = false
-//        tv.backgroundColor = .blue
         return tv
         
     }()
@@ -105,10 +103,7 @@ class ChatMessageCell: UICollectionViewCell {
     let bubbleView: UIView = {
         
         let view = UIView()
-//        view.backgroundColor = blueColor
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.cornerRadius = 16
-//        view.layer.masksToBounds = true
         return view
         
     }()
@@ -135,8 +130,6 @@ class ChatMessageCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
-//        imageView.backgroundColor = UIColor.brown
-        
         imageView.isUserInteractionEnabled = true
         
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomTap)))
@@ -174,15 +167,12 @@ class ChatMessageCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.backgroundColor = .red
         addSubview(bubbleView)
         addSubview(textView)
         addSubview(profileImageView)
         addSubview(timeLabel)
         
         bubbleView.addSubview(messageImageView)
-        
-//        messageImageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
         messageImageView.leftAnchor.constraint(equalTo: bubbleView.leftAnchor).isActive = true
         messageImageView.topAnchor.constraint(equalTo: bubbleView.topAnchor).isActive = true
         messageImageView.widthAnchor.constraint(equalTo: bubbleView.widthAnchor).isActive = true
@@ -225,14 +215,12 @@ class ChatMessageCell: UICollectionViewCell {
         bubbleWidthAncher?.isActive = true
         bubbleView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22.5).isActive = true
         
-//        textView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         textViewLeftAncher = textView.leftAnchor.constraint(equalTo: bubbleView.leftAnchor, constant: 0)
         textViewLeftAncher?.isActive = true
         textView.topAnchor.constraint(equalTo: self.topAnchor, constant: 29).isActive = true
         
         textViewRightAncher = textView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: 0)
         textViewRightAncher?.isActive = true
-//        textView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         textView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor, constant: -24).isActive = true
         
         timeLabel.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true

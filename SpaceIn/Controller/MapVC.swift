@@ -90,10 +90,6 @@ class MapViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         mapView.mapViewDelagate = self
         mapView.mapViewController = self
-        
-        
-        
-//        mapView.isUserInteractionEnabled = true
         addViews()
         
         Global.currentCenterLocation = Global.currentUserLocation
@@ -110,7 +106,6 @@ class MapViewController: UIViewController {
         handleUpdatiingLocationTimer()
         
         setPushLabel()
-//        self.checkPushExist()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -126,8 +121,6 @@ class MapViewController: UIViewController {
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(showAcceptControllerFromMapVC(notification:)), name: .ShowAcceptController, object: nil)
-//        nc.addObserver(self, selector: #selector(resetPushLabelWithReadMessage(notification:)), name: .ResetBadgeLabel, object: nil)
-//        nc.addObserver(self, selector: #selector(resetPushLabelWhenRemovedMessage(notification:)), name: .ResetBadgeLabelWhenRemovedMessage, object: nil)
         
         nc.addObserver(self, selector: #selector(setPlusPushCountForNewMessage(notification:)), name: .setPushLabelNewMessages, object: nil)
         nc.addObserver(self, selector: #selector(setReadPushCountForNewMessage(notification:)), name: .setPushLabelReadMessages, object: nil)
@@ -137,8 +130,6 @@ class MapViewController: UIViewController {
     private func removePushNotificationObserver() {
         let nc = NotificationCenter.default
         nc.removeObserver(self, name: .ShowAcceptController, object: nil)
-//        nc.removeObserver(self, name: .ResetBadgeLabel, object: nil)
-//        nc.removeObserver(self, name: .ResetBadgeLabelWhenRemovedMessage, object: nil)
         
         nc.removeObserver(self, name: .setPushLabelNewMessages, object: nil)
         nc.removeObserver(self, name: .setPushLabelReadMessages, object: nil)
@@ -188,19 +179,6 @@ class MapViewController: UIViewController {
                 }
                 
             }, withCancel: nil)
-            
-//            let ref = Database.database().reference().child("user-messages").child(uid)
-//            ref.observe(.childAdded, with: { (snapshot) in
-//
-//                let userId = snapshot.key
-//                ref.child(userId).observe(.childAdded, with: { (snapshot) in
-//
-//                    let messageId = snapshot.key
-//
-//                    self.fetchMessageWithMessageId(messageId: messageId)
-//
-//                }, withCancel: nil)
-//            }, withCancel: nil)
             
         }
 
@@ -328,23 +306,6 @@ class MapViewController: UIViewController {
         }
     }
     
-//    func showAcceptControllerFromMapVC(notification: NSNotification) {
-//        if SpaceInUser.userIsLoggedIn() {
-//
-//            if let push = notification.userInfo?["push"] as? Push, let user = notification.userInfo?["user"] as? SpaceUser {
-//
-//                let invitationController = InvitationController()
-//
-//                invitationController.chatUser = user
-//                invitationController.push = push
-//                invitationController.modalPresentationStyle = .overCurrentContext
-//                invitationController.modalTransitionStyle = .crossDissolve
-//                self.present(invitationController, animated: false, completion: nil)
-//            }
-//
-//        }
-//    }
-    
     private func checkPushExist() {
         
         if SpaceInUser.userIsLoggedIn() {
@@ -456,9 +417,6 @@ class MapViewController: UIViewController {
         self.users.removeAll()
         if SpaceInUser.userIsLoggedIn() {
             mapView.showsUserLocation = true
-//            if let location = self.mapView.userLocation.location {
-//                Global.currentUserLocation = location
-//            }
 
             removeUsersWhenLogout()
             addNotificationObserversWithFetch()
@@ -575,14 +533,11 @@ class MapViewController: UIViewController {
             let lat = geoLocation[0]
             let lon = geoLocation[1]
             
-//            self.mapView.addOtherUsersPin(withUser: user, withCoordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
-            
             if user.userId == Auth.auth().currentUser?.uid {
                 self.mapView.addOtherUsersPin(withUser: user, withCoordinate: self.mapView.userLocation.coordinate)
             } else {
                 self.mapView.addOtherUsersPin(withUser: user, withCoordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
             }
-//
             
         }
         
@@ -630,18 +585,12 @@ extension MapViewController {
     fileprivate func removeSelfAsObserver() {
         let nc = NotificationCenter.default
         nc.removeObserver(self)
-        
-//        nc.removeObserver(self, name: .didSetUserLocation, object: nil)
-//        nc.removeObserver(self, name: .deniedLocationPermission, object: nil)
-//        nc.removeObserver(self, name: .restrictedLocationPermission, object: nil)
     }
     
     func userLocationSet() {
         removeSelfAsObserver()
         addNotificationObserversWithFetch()
         guard let location = mapView.userLocation.location else { return }
-
-//        let location = Global.currentUserLocation
         
         Global.currentCenterLocation = location
         guard let currentUser = SpaceInUser.current else { return }
@@ -651,7 +600,6 @@ extension MapViewController {
             mapView.setToLocation(location: location, zoomType: .leaveAlone, animated: true)
         
             currentUser.movedToCoordinate(coordinate: location.coordinate)
-//            mapView.addUserPin(withCoordinate: currentUser.getCoordinate()!)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 //we add a second of lag. otherwise the region did change will cause issues
@@ -963,9 +911,6 @@ extension MapViewController {
     @objc fileprivate func profileButtonPressed() {
         if SpaceInUser.userIsLoggedIn() {
             presentProfileVC(user: SpaceInUser.current!)
-
-            
-//            self.presentUserProfileVC(user: self.spaceUser!)
             
         } else {
             presentLoginRegister()
@@ -1164,75 +1109,11 @@ extension MapViewController {
 
 
 extension MapViewController: UIGestureRecognizerDelegate {
-    
-//    fileprivate func addPanGestureRecognizer() {
-//        
-//        let panRec = UIPanGestureRecognizer(target: self, action: #selector(didDragMap(gestureRecognizer:)))
-//        panRec.delegate = self
-//        self.mapView.addGestureRecognizer(panRec)
-//        
-//    }
 //    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-//    
-//    func didDragMap(gestureRecognizer: UIGestureRecognizer) {
-//        if gestureRecognizer.state == .ended {
-//            print("drag ended")
-//        }
-//    }
     
 }
-
-
-
-
-
-
-////Mark:- Zoom
-//extension MapViewController {
-//    fileprivate func processZoomAction(zoomIn: Bool) {
-//        if mapView.isIn3DMode() {
-//            print("3d")
-//        } else {
-//
-////            //  until the altitude reaches 36185300.1305086 use the camera to zoom since changing the region looks like crap
-////
-////            if mapView.camera.altitude > 4_000_000.0 {
-////                MKMapView.animate(withDuration: 0.3, animations: {
-////                    let change = 0.03
-////                    let delta = zoomIn ? 1 - change : 1 + change
-////                    let newAltitude = mapView.camera.altitude * delta
-////
-////                    mapView.camera.altitude = newAltitude
-////                    print("camera")
-////                })
-////
-////            } else {
-//            print(mapView.camera.altitude)
-//
-//            if mapView.camera.altitude > 10_700_000 && mapView .camera.altitude < 28_700_000 {
-//                let change = 0.03
-//                let delta = zoomIn ? 1 - change : 1 + change
-//                let newAltitude = mapView.camera.altitude * delta
-//
-//                mapView.camera.altitude = newAltitude
-//                print("camera")
-//            } else {
-//                let change = 0.55
-//                let delta = zoomIn ? 1 - change : 1 + change
-//                var span = mapView.region.span
-//                print("region")
-//                span.latitudeDelta *= delta
-//                span.longitudeDelta *= delta
-//
-//                let newRegion = MKCoordinateRegion(center: mapView.centerCoordinate, span: span)
-//                mapView.setRegion(newRegion, animated: true)
-//            }
-//
-//        }
-//    }
-//}
 
 
