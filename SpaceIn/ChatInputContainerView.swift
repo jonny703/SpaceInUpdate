@@ -117,16 +117,6 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         self.inputTextField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         self.inputTextField.rightAnchor.constraint(equalTo: sendButton.leftAnchor).isActive = true
         self.inputTextField.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-        
-//        let seperatorLineView = UIView()
-//        seperatorLineView.backgroundColor = UIColor.black
-//        seperatorLineView.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(seperatorLineView)
-//        
-//        seperatorLineView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-//        seperatorLineView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        seperatorLineView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-//        seperatorLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
         
     }

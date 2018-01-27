@@ -114,8 +114,6 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         setupBackground()
         addBlurEffectViewFrame()
-        
-//        setupBlurBackground()
         setup()
     }
     
@@ -436,7 +434,6 @@ extension ProfileVC {
         toggle.alpha = 0.0
         
         toggle.onTintColor = StyleGuideManager.floatingSpaceinLabelColor
-//        toggle.isOn = toggleShouldBeOn()
         
         containerView.addSubview(notifciationsLabel)
         notifciationsLabel.translatesAutoresizingMaskIntoConstraints = false

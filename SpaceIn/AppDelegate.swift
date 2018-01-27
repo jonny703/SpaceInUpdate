@@ -65,19 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSPerm
             if state == UIApplicationState.background {
                 
             } else if state == UIApplicationState.active {
-                
-//                if let currentControllers = currentViewController()  {
-//                    let invitationController = InvitationController()
-//                    
-////                    invitationController.chatUser = user
-//                    
-//                    invitationController.modalPresentationStyle = .overCurrentContext
-//                    invitationController.modalTransitionStyle = .crossDissolve
-//                    currentControllers.present(invitationController, animated: false, completion: nil)
-//                    
-//                    
-//                    print("pushcoming_recieve block")
-//                }
             }
             
             
@@ -149,58 +136,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSPerm
             } else if state == UIApplicationState.active {
                 
             } else if state == UIApplicationState.inactive {
-//                if let additionalData = result!.notification.payload!.additionalData {
-//                    print("additionalData = \(additionalData)")
-//                    
-//                    let fromId = additionalData["fromId"] as! String
-//                    let pushId = additionalData["pushId"] as! String
-//                    
-//                    let pushRef = Database.database().reference().child("push-table").child(pushId)
-//                    
-//                    pushRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//                        
-//                        if let dictionary = snapshot.value as? [String: AnyObject] {
-//                            
-//                            let push = Push(dictionary: dictionary)
-//                            push.pushId = pushId
-//                            
-//                            if push.pushKey == 0 {
-//                                let userRef = Database.database().reference().child("users").child(fromId)
-//                                
-//                                userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//                                    if let dictionary = snapshot.value as? [String: AnyObject] {
-//                                        
-//                                        let user = SpaceUser()
-//                                        user.userId = snapshot.key
-//                                        user.setValuesForKeys(dictionary)
-//                                        if let currentControllers = currentViewController()  {
-//                                            let invitationController = InvitationController()
-//                                            
-//                                            invitationController.chatUser = user
-//                                            invitationController.push = push
-//                                            invitationController.modalPresentationStyle = .overCurrentContext
-//                                            invitationController.modalTransitionStyle = .crossDissolve
-//                                            currentControllers.present(invitationController, animated: false, completion: nil)
-//                                            
-//                                            
-//                                            print("pushcoming_inactive")
-//                                        }
-//                                        
-//                                    }
-//                                    
-//                                    
-//                                }, withCancel: nil)
-//                            } else if push.pushKey == 1 {
-//                                
-//                            } else {
-//                                
-//                            }
-//                            
-//                        }
-//                        
-//                    }, withCancel: nil)
-//                    
-//                }
 
             }
             
@@ -287,21 +222,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSPerm
             if stateChanges.to.status == OSNotificationPermission.authorized {
                 print("Thanks for accepting notifications!")
                 
-//                let status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
-//                let hasPrompted = status.permissionStatus.hasPrompted
-//                print("hasPrompted = \(hasPrompted)")
-//                let userStatus = status.permissionStatus.status
-//                print("userStatus = \(userStatus)")
-//                let isSubscribed = status.subscriptionStatus.subscribed
-//                print("isSubscribed = \(isSubscribed)")
-//                let userSubscriptionSetting = status.subscriptionStatus.userSubscriptionSetting
-//                print("userSubscriptionSetting = \(userSubscriptionSetting)")
-//                let userID = status.subscriptionStatus.userId
-//                print("userID = \(userID)")
-//                let pushToken = status.subscriptionStatus.pushToken
-//                print("pushToken = \(pushToken)")
-//                Global.pushToken = userID!
-                
             } else if stateChanges.to.status == OSNotificationPermission.denied {
                 print("Notifications not accepted. You can turn them on later under your iOS settings.")
                 Global.pushToken = ""
@@ -311,35 +231,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSPerm
         print("PermissionStateChanges: \n\(stateChanges)")
     }
     
-    // Output:
-    /*
-     Thanks for accepting notifications!
-     PermissionStateChanges:
-     Optional(<OSSubscriptionStateChanges:
-     from: <OSPermissionState: hasPrompted: 0, status: NotDetermined>,
-     to:   <OSPermissionState: hasPrompted: 1, status: Authorized>
-     >
-     */
-    
-    // TODO: update docs to change method name
-    // Add this new method
     func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
         if !stateChanges.from.subscribed && stateChanges.to.subscribed {
             print("Subscribed for OneSignal push notifications!")
         }
         print("SubscriptionStateChange: \n\(stateChanges)")
     }
-    
-    // Output:
-    
-    /*
-     Subscribed for OneSignal push notifications!
-     PermissionStateChanges:
-     Optional(<OSSubscriptionStateChanges:
-     from: <OSSubscriptionState: userId: (null), pushToken: 0000000000000000000000000000000000000000000000000000000000000000 userSubscriptionSetting: 1, subscribed: 0>,
-     to:   <OSSubscriptionState: userId: 11111111-222-333-444-555555555555, pushToken: 0000000000000000000000000000000000000000000000000000000000000000, userSubscriptionSetting: 1, subscribed: 1>
-     >
-     */
 
     
 
@@ -400,82 +297,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSPerm
                 return
             }
         }
-        
-//        showAcceptControllerWhenReceiveRequest()
     }
     
-    func showAcceptControllerWhenReceiveRequest() {
-        
-        if SpaceInUser.userIsLoggedIn() {
-            
-            guard let uid = Auth.auth().currentUser?.uid else {
-                return
-            }
-            let pushRef = Database.database().reference().child("push-table")
-            
-            pushRef.queryOrdered(byChild: "toId").queryEqual(toValue: uid).observe(.childAdded, with: { (snapshot) in
-                
-                print("snapshot", snapshot.value!)
-                
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    
-                    let push = Push(dictionary: dictionary)
-                    push.pushId = snapshot.key
-                    
-                    if push.pushKey == 0 {
-                        
-                        print("pushcoming_background1")
-                        if let fromId = push.fromId {
-                            let userRef = Database.database().reference().child("users").child(fromId)
-                            
-                            userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                                if let dictionary = snapshot.value as? [String: AnyObject] {
-                                    let user = SpaceUser()
-                                    user.userId = snapshot.key
-                                    user.setValuesForKeys(dictionary)
-                                    print("pushcoming_background2")
-                                    
-                                    if let currentController = currentViewController()  {
-                                        
-                                        if !currentController.isKind(of: MapViewController.self) {
-                                            let invitationController = InvitationController()
-                                            
-                                            invitationController.chatUser = user
-                                            invitationController.push = push
-                                            
-                                            invitationController.modalPresentationStyle = .overCurrentContext
-                                            invitationController.modalTransitionStyle = .crossDissolve
-                                            currentController.present(invitationController, animated: false, completion: nil)
-                                            
-                                            
-                                            print("pushcoming_background")
-                                        } else {
-                                            
-                                            let dictionaryData = ["push": push, "user": user] as [String: AnyObject]
-                                            let nc = NotificationCenter.default
-                                            nc.post(name: .ShowAcceptController, object: nil, userInfo: dictionaryData)
-                                            
-                                        }
-                                        
-                                    }
-                                    
-                                }
-                                
-                                
-                            }, withCancel: nil)
-                        }
-                    }
-                    
-                }
-                
-            }, withCancel: nil)
-
-            
-        }
-
-        
-        
-    }
+    
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -558,14 +382,11 @@ extension AppDelegate: TutorialVCDelegate {
     fileprivate func determineAndLoadInitialVC() {
         
         let userDefaults = UserDefaults.standard
-//        userDefaults.setValue(false, forKey: UserDefaultKeys.hasSeenTutorial.rawValue)
-//        userDefaults.synchronize()
         let hasSeenTutorial = userDefaults.bool(forKey: UserDefaultKeys.hasSeenTutorial.rawValue)
         
         if hasSeenTutorial {
             LocationManager.sharedInstance.startTrackingUser()
             perform(#selector(setupUserSettingsAndLaunchMapVC), with: nil, afterDelay: 1.0)
-//            self.setupUserSettingsAndLaunchMapVC()
         } else {
             
             self.makeTutorialViewTheFirstView()
@@ -607,10 +428,8 @@ extension AppDelegate: TutorialVCDelegate {
         
         if hasSeenMap {
             return MapViewZoomType.zoomedOut
-//            return MapViewZoomType.zoomedIn
         } else {
             userDefaults.set(true, forKey: UserDefaultKeys.hasSeenMapBefore.rawValue)
-//            return MapViewZoomType.zoomedIn
             return MapViewZoomType.zoomedOut
         }
     }

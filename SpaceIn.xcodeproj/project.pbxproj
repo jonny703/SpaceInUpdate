@@ -29,23 +29,21 @@
 		076D142A1F75F77900CF4C48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 076D14291F75F77900CF4C48 /* GoogleService-Info.plist */; };
 		076D142B1F75F77900CF4C48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 076D14291F75F77900CF4C48 /* GoogleService-Info.plist */; };
 		077455A01FD1B0DD00ED831A /* Extension+UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774559F1FD1B0DD00ED831A /* Extension+UserDefault.swift */; };
-		079078221FD2F740005387A5 /* privacypolicy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 079078211FD2F740005387A5 /* privacypolicy.pdf */; };
-		079078241FD2F744005387A5 /* termsofservice.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 079078231FD2F744005387A5 /* termsofservice.pdf */; };
 		079078261FD2F778005387A5 /* AgreementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079078251FD2F778005387A5 /* AgreementController.swift */; };
 		07A4ADE41F2783B900E32CF5 /* PostHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4ADE31F2783B900E32CF5 /* PostHistoryController.swift */; };
+		07A5C5B7201C2C5A009B631A /* termsofservice.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 07A5C5B6201C2C59009B631A /* termsofservice.pdf */; };
+		07A5C5B9201C2C5F009B631A /* privacypolicy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 07A5C5B8201C2C5F009B631A /* privacypolicy.pdf */; };
 		07DE39F01F252D42006004A5 /* ChatHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DE39EF1F252D42006004A5 /* ChatHistoryController.swift */; };
 		07DE39F21F252DE8006004A5 /* ChatHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DE39F11F252DE8006004A5 /* ChatHistoryCell.swift */; };
 		07FA61F91F1C6AC400F81320 /* SpaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA61F81F1C6AC400F81320 /* SpaceUser.swift */; };
 		A2D5506F38C46B3268C647F7 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A23E55CD1045FBDC6F2CFC /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		D8083D5D1E3D79EA00F5309C /* SpaceInConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8083D5C1E3D79EA00F5309C /* SpaceInConvenience.swift */; };
-		D8083D5F1E3D8C5600F5309C /* FloatingSpaceinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8083D5E1E3D8C5600F5309C /* FloatingSpaceinView.swift */; };
 		D815E4511EDA29F4005C073F /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815E4501EDA29F4005C073F /* MediaManager.swift */; };
 		D815E4531EDA2A39005C073F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D815E4521EDA2A39005C073F /* AVFoundation.framework */; };
 		D817FDB61E40DCBC00A79ED3 /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817FDB51E40DCBC00A79ED3 /* JoystickView.swift */; };
 		D81CD97D1DFA7A8F0042E2AD /* ToplessTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CD97C1DFA7A8F0042E2AD /* ToplessTextfield.swift */; };
 		D8280FC61E11A3B300D47D83 /* SpaceInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8280FC51E11A3B300D47D83 /* SpaceInUser.swift */; };
 		D832FD971E25E19F00FDE311 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D832FD961E25E19F00FDE311 /* ForgotPasswordVC.swift */; };
-		D8404A871E2DA10B0072AE25 /* UIView+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8404A861E2DA10B0072AE25 /* UIView+Convenience.swift */; };
 		D84706B11E66840B0098D3FB /* JoystickProccesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84706B01E66840B0098D3FB /* JoystickProccesser.swift */; };
 		D849EB291E06011800A49B5C /* LoginRegisterVC+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849EB281E06011800A49B5C /* LoginRegisterVC+UI.swift */; };
 		D849EB2B1E08E5B400A49B5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849EB2A1E08E5B300A49B5C /* Constants.swift */; };
@@ -56,7 +54,6 @@
 		D894EED51DDC26180039D92A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894EED31DDC26180039D92A /* LaunchScreen.storyboard */; };
 		D8AF8D841E5BAF00006C7B8B /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF8D831E5BAF00006C7B8B /* Joystick.swift */; };
 		D8B48E2A1E46EBBA00647D7B /* SpaceInUserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B48E291E46EBBA00647D7B /* SpaceInUserAnnotation.swift */; };
-		D8B48E2C1E46EE3D00647D7B /* UserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B48E2B1E46EE3D00647D7B /* UserAnnotationView.swift */; };
 		D8CA4C1A1DFA57A3004665F0 /* StyleGuideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CA4C191DFA57A3004665F0 /* StyleGuideManager.swift */; };
 		D8CA4C1C1DFA5879004665F0 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CA4C1B1DFA5879004665F0 /* AssetManager.swift */; };
 		D8CB6A411E38E41D00F7D070 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CB6A401E38E41D00F7D070 /* TutorialVC.swift */; };
@@ -123,10 +120,10 @@
 		07419CD81F26C383009EC904 /* CreatePostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostController.swift; sourceTree = "<group>"; };
 		076D14291F75F77900CF4C48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0774559F1FD1B0DD00ED831A /* Extension+UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefault.swift"; sourceTree = "<group>"; };
-		079078211FD2F740005387A5 /* privacypolicy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = privacypolicy.pdf; sourceTree = "<group>"; };
-		079078231FD2F744005387A5 /* termsofservice.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = termsofservice.pdf; sourceTree = "<group>"; };
 		079078251FD2F778005387A5 /* AgreementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementController.swift; sourceTree = "<group>"; };
 		07A4ADE31F2783B900E32CF5 /* PostHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostHistoryController.swift; sourceTree = "<group>"; };
+		07A5C5B6201C2C59009B631A /* termsofservice.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = termsofservice.pdf; sourceTree = "<group>"; };
+		07A5C5B8201C2C5F009B631A /* privacypolicy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = privacypolicy.pdf; sourceTree = "<group>"; };
 		07DE39EF1F252D42006004A5 /* ChatHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHistoryController.swift; sourceTree = "<group>"; };
 		07DE39F11F252DE8006004A5 /* ChatHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHistoryCell.swift; sourceTree = "<group>"; };
 		07FA61F81F1C6AC400F81320 /* SpaceUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceUser.swift; sourceTree = "<group>"; };
@@ -135,7 +132,6 @@
 		950F45E689352518C78A7BD1 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		A69320F58315C503A7837752 /* Pods-SpaceIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceIn/Pods-SpaceIn.release.xcconfig"; sourceTree = "<group>"; };
 		D8083D5C1E3D79EA00F5309C /* SpaceInConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceInConvenience.swift; sourceTree = "<group>"; };
-		D8083D5E1E3D8C5600F5309C /* FloatingSpaceinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingSpaceinView.swift; sourceTree = "<group>"; };
 		D815E4501EDA29F4005C073F /* MediaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaManager.swift; sourceTree = "<group>"; };
 		D815E4521EDA2A39005C073F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D817FDB51E40DCBC00A79ED3 /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoystickView.swift; path = View/JoystickView.swift; sourceTree = "<group>"; };
@@ -143,7 +139,6 @@
 		D8280FC51E11A3B300D47D83 /* SpaceInUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpaceInUser.swift; path = Model/SpaceInUser.swift; sourceTree = "<group>"; };
 		D832FD961E25E19F00FDE311 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordVC.swift; path = Controller/ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		D838E9551DF7AE6100F08F17 /* SpaceIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpaceIn.entitlements; sourceTree = "<group>"; };
-		D8404A861E2DA10B0072AE25 /* UIView+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Convenience.swift"; sourceTree = "<group>"; };
 		D84706B01E66840B0098D3FB /* JoystickProccesser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoystickProccesser.swift; path = Model/JoystickProccesser.swift; sourceTree = "<group>"; };
 		D849EB281E06011800A49B5C /* LoginRegisterVC+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginRegisterVC+UI.swift"; sourceTree = "<group>"; };
 		D849EB2A1E08E5B300A49B5C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -156,7 +151,6 @@
 		D894EED61DDC26180039D92A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8AF8D831E5BAF00006C7B8B /* Joystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Joystick.swift; path = View/Joystick.swift; sourceTree = "<group>"; };
 		D8B48E291E46EBBA00647D7B /* SpaceInUserAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceInUserAnnotation.swift; sourceTree = "<group>"; };
-		D8B48E2B1E46EE3D00647D7B /* UserAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAnnotationView.swift; path = View/UserAnnotationView.swift; sourceTree = "<group>"; };
 		D8CA4C191DFA57A3004665F0 /* StyleGuideManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGuideManager.swift; sourceTree = "<group>"; };
 		D8CA4C1B1DFA5879004665F0 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		D8CB6A401E38E41D00F7D070 /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialVC.swift; path = Controller/TutorialVC.swift; sourceTree = "<group>"; };
@@ -236,8 +230,8 @@
 		079078201FD2F72D005387A5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				079078211FD2F740005387A5 /* privacypolicy.pdf */,
-				079078231FD2F744005387A5 /* termsofservice.pdf */,
+				07A5C5B8201C2C5F009B631A /* privacypolicy.pdf */,
+				07A5C5B6201C2C59009B631A /* termsofservice.pdf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -278,7 +272,6 @@
 		D8404A851E2DA0F20072AE25 /* ViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				D8404A861E2DA10B0072AE25 /* UIView+Convenience.swift */,
 				0774559F1FD1B0DD00ED831A /* Extension+UserDefault.swift */,
 				0736799A1F1E45A4005816C6 /* Extenstions.swift */,
 			);
@@ -356,8 +349,6 @@
 				D817FDB51E40DCBC00A79ED3 /* JoystickView.swift */,
 				D8AF8D831E5BAF00006C7B8B /* Joystick.swift */,
 				073679A61F1F1201005816C6 /* ChatInputContainerView.swift */,
-				D8083D5E1E3D8C5600F5309C /* FloatingSpaceinView.swift */,
-				D8B48E2B1E46EE3D00647D7B /* UserAnnotationView.swift */,
 				0736799E1F1E6D3D005816C6 /* SpaceUserAnnotationView.swift */,
 			);
 			name = View;
@@ -509,12 +500,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A5C5B7201C2C5A009B631A /* termsofservice.pdf in Resources */,
+				07A5C5B9201C2C5F009B631A /* privacypolicy.pdf in Resources */,
 				076D142A1F75F77900CF4C48 /* GoogleService-Info.plist in Resources */,
 				D894EED51DDC26180039D92A /* LaunchScreen.storyboard in Resources */,
 				D894EED21DDC26180039D92A /* Assets.xcassets in Resources */,
 				D8D746631DF122D700A1EE70 /* Main.storyboard in Resources */,
-				079078221FD2F740005387A5 /* privacypolicy.pdf in Resources */,
-				079078241FD2F744005387A5 /* termsofservice.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,7 +674,6 @@
 				072DB4F21F6ACE6800A70618 /* InvitationController.swift in Sources */,
 				073679A51F1EF0E0005816C6 /* ChatOnebyOneController.swift in Sources */,
 				D8280FC61E11A3B300D47D83 /* SpaceInUser.swift in Sources */,
-				D8B48E2C1E46EE3D00647D7B /* UserAnnotationView.swift in Sources */,
 				D8CB6A411E38E41D00F7D070 /* TutorialVC.swift in Sources */,
 				07DE39F21F252DE8006004A5 /* ChatHistoryCell.swift in Sources */,
 				D832FD971E25E19F00FDE311 /* ForgotPasswordVC.swift in Sources */,
@@ -698,11 +688,9 @@
 				0736799B1F1E45A4005816C6 /* Extenstions.swift in Sources */,
 				D849EB2B1E08E5B400A49B5C /* Constants.swift in Sources */,
 				073B82BD1F27AF7800D48D32 /* PostReplyController.swift in Sources */,
-				D8083D5F1E3D8C5600F5309C /* FloatingSpaceinView.swift in Sources */,
 				D849EB2D1E08E8A200A49B5C /* AlertMessage.swift in Sources */,
 				073679A91F1F1A3E005816C6 /* Message.swift in Sources */,
 				073679A11F1E8AF4005816C6 /* Alerts.swift in Sources */,
-				D8404A871E2DA10B0072AE25 /* UIView+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,10 +33,6 @@ class TutorialVC : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        if self.didLoadLocationVC == false {
-//            self.loadLocationPermissionPage()
-//        }
     }
 }
 

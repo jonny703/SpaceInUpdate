@@ -27,8 +27,6 @@ class ChatHistoryCell: UITableViewCell {
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "hh:mm a"
-                
-                //                timeLabel.text = timestampeDate.description
                 timeLabel.text = dateFormatter.string(from: timestampeDate as Date)
                 timeLabel.text = returnLeftTimedateformatter(date: seconds)
             }
@@ -103,9 +101,6 @@ class ChatHistoryCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(named: AssetName.statusIcon.rawValue)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.layer.cornerRadius = 20
-//        imageView.layer.masksToBounds = true
-//        imageView.contentMode = .scaleAspectFill
         return imageView
         
     }()
@@ -113,7 +108,6 @@ class ChatHistoryCell: UITableViewCell {
     let timeLabel: UILabel = {
         
         let label = UILabel()
-        //        label.text = "HH:MM:SS"
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = UIColor.white
         label.textAlignment = .right
@@ -127,7 +121,6 @@ class ChatHistoryCell: UITableViewCell {
         let label = UILabel()
         label.text = "0"
         label.textColor = .white
-//        label.sizeToFit()
         label.font = UIFont.systemFont(ofSize: 11)
         label.textAlignment = .center
         label.backgroundColor = .red

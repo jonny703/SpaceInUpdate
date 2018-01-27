@@ -43,8 +43,6 @@ extension UIImageView {
                     self.image = downloadedImage
                     
                 }
-                
-                
             }
             
         }).resume()
@@ -83,50 +81,6 @@ extension UIImage {
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-}
-
-extension UIViewController {
-    
-//    func findBestViewController(vc: UIViewController) -> UIViewController {
-//        
-//        if (vc.presentedViewController != nil) {
-//            return self.findBestViewController(vc: vc.presentedViewController!)
-//        } else if vc.isKind(of: UISplitViewController.self) {
-//            
-//            let svc = UISplitViewController()
-//            if svc.viewControllers.count > 0 {
-//                return self.findBestViewController(vc: svc.viewControllers.last!)
-//            } else {
-//                return vc
-//            }
-//            
-//        } else if vc.isKind(of: UINavigationController.self) {
-//            let nvc = UINavigationController()
-//            if nvc.viewControllers.count > 0 {
-//                return self.findBestViewController(vc: nvc.topViewController!)
-//            } else {
-//                return vc
-//            }
-//            
-//        } else if vc.isKind(of: UITabBarController.self) {
-//            let tvc = UITabBarController()
-//            if (tvc.viewControllers?.count)! > 0 {
-//                return self.findBestViewController(vc: tvc.selectedViewController!)
-//            } else {
-//                return vc
-//            }
-//        } else {
-//            return vc
-//        }
-//        
-//        
-//    }
-//    
-//    func currentViewController() -> UIViewController {
-//        let viewController = UIApplication.shared.keyWindow?.rootViewController
-//        return self.findBestViewController(vc: viewController!)
-//    }
-    
 }
 
 func findBestViewController(vc: UIViewController) -> UIViewController {

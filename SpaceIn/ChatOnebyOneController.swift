@@ -84,7 +84,6 @@ class ChatOnebyOneController: UIViewController, UIImagePickerControllerDelegate,
         colView.translatesAutoresizingMaskIntoConstraints = false
         colView.dataSource = self
         colView.delegate = self
-//        colView.keyboardDismissMode = .interactive
         return colView
     }()
     
@@ -170,9 +169,6 @@ class ChatOnebyOneController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewAppeared = true
-        
-        // keyboard show hide remove
-//        NotificationCenter.default.removeObserver(self)
     }
 
     deinit {
@@ -223,8 +219,6 @@ class ChatOnebyOneController: UIViewController, UIImagePickerControllerDelegate,
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "hh:mm a"
-            
-            //                timeLabel.text = timestampeDate.description
             cell.timeLabel.text = dateFormatter.string(from: timestampeDate as Date)
             cell.timeLabel.text = returnLeftTimedateformatter(date: seconds)
         }
@@ -253,11 +247,6 @@ class ChatOnebyOneController: UIViewController, UIImagePickerControllerDelegate,
     private func setupCell(cell: ChatMessageCell, message: Message) {
         
         if message.fromId == Auth.auth().currentUser?.uid {
-            
-//            if let profileImageUrl = Global.currentUser.profilePictureURL {
-//                cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-//            }
-            
             
             
             let ref = Database.database().reference().child("users").child(message.fromId!)
@@ -414,7 +403,6 @@ extension ChatOnebyOneController {
         collectionView.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.dataSource = self
         collectionView.delegate = self
-//        collectionView.keyboardDismissMode = .interactive
         view.addSubview(collectionView)
         
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
@@ -592,10 +580,6 @@ extension ChatOnebyOneController {
         //key $0, value $1
         properties.forEach({values[$0] = $1})
         
-        //        childRef.updateChildValues(values)
-        
-        
-        
         childRef.updateChildValues(values) { (error, ref) in
             
             if error != nil {
@@ -654,8 +638,6 @@ extension ChatOnebyOneController {
                                                 "ios_badgeCount": 1,
                                                 "data": ["action": "chatting"]
                                                 ] as [String : Any]
-                                            
-                                            //                                OneSignal.postNotification(notificationContent)
                                             OneSignal.postNotification(notificationContent, onSuccess: { (result) in
                                                 
                                                 print("onesignal sucess: ", result ?? "")

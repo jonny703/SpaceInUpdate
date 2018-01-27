@@ -103,7 +103,6 @@ extension PostHistoryController {
                 
                 let postedDay = returnDayWithDateformatter(date: post.timestamp as! Double)
                 if postedDay < 7 {
-//                    self.posts.append(Post(dictionary: dictionary))
                     
                     if postedDay != 0 {
                         self.posts.insert(Post(dictionary: dictionary), at: 0)
@@ -334,9 +333,6 @@ extension PostHistoryController {
         
         
         collectionView.register(PostHistoryCell.self, forCellWithReuseIdentifier: cellId)
-//        collectionView.dataSource = self
-//        collectionView.delegate = self
-        //        collectionView.keyboardDismissMode = .interactive
         view.addSubview(collectionView)
         
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
