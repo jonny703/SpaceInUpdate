@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import MapKit
-import Fabric
-import Crashlytics
 import OneSignal
 
 @UIApplicationMain
@@ -30,8 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSPerm
         self.launchOptions = launchOptions
         
         setupOneSignal(launchOptions: launchOptions)
-        
-        Fabric.with([Crashlytics.self])
         
         setupManagers()
         
