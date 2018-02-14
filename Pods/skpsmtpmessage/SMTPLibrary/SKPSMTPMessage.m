@@ -162,6 +162,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     if(self.watchdogTimer != nil) {
         self.watchdogTimer = nil;
     }
+//    self.watchdogTimer = nil;
     
 }
 

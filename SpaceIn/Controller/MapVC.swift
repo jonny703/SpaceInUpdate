@@ -14,7 +14,7 @@ import QuartzCore
 import Shimmer
 import Firebase
 import GeoFire
-
+import SendGrid
 
 //MARK: - Lifecycle
 class MapViewController: UIViewController {
@@ -93,6 +93,42 @@ class MapViewController: UIViewController {
         addViews()
         
         Global.currentCenterLocation = Global.currentUserLocation
+        
+        handleReportEmail()
+    }
+    
+    
+    fileprivate func handleReportEmail() {
+        
+        let address = Address(email: "hellojohn703@hotmail.com")
+        let address1 = Address(email: "SpaceinUserAssistance@gmail.com")
+        let personalization = Personalization(to: [address, address1])
+        
+        let plainText = Content(contentType: ContentType.plainText, value: "Test sending email")
+        let htmlText = Content(contentType: ContentType.htmlText, value: "<h1>Test sending email</h1>")
+        let email = Email(
+            personalizations: [personalization],
+            from: Address(email: "zhichaocaesar702@gmail.com"),
+            content: [plainText, htmlText],
+            subject: "Spacein"
+        )
+        do {
+            try Session.shared.send(request: email)
+        } catch {
+            print("email test", error)
+        }
+        
+        let email1 = Email(
+            personalizations: [personalization],
+            from: Address(email: "SpaceinUserAssistance@gmail.com"),
+            content: [plainText, htmlText],
+            subject: "Spacein"
+        )
+        do {
+            try Session.shared.send(request: email1)
+        } catch {
+            print("email test", error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -520,6 +556,9 @@ class MapViewController: UIViewController {
     }
     
     func addOtherUsersAnnotation() {
+        
+        self.mapView.removeOtherUsersPin()
+        
         for user in users {
             
             if let count = user.postCount {

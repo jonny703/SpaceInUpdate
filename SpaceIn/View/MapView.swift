@@ -279,23 +279,6 @@ extension MapView: MKMapViewDelegate {
             return nil
         }
         
-        //2. get the identifier for the annotation
-        //3. if the view exists, return it
-        
-        
-//        if let viewToReturn = mapView.dequeueReusableAnnotationView(withIdentifier: userAnnotation.uid) as? UserAnnotationView {
-//            if let userPicture = userAnnotation.user.image {
-//                viewToReturn.pictureView.image = userPicture
-//            }
-//            
-//            viewToReturn.annotation = annotation
-//            return viewToReturn
-//        } else {  //4. Else, create the view
-//            let annotationView = UserAnnotationView(annotation: userAnnotation, user: userAnnotation.user)
-//            return annotationView
-//            //start here and actually add one of the user annotation types and test this code
-//        }
-        
         var annotationView: MKAnnotationView?
         
         if SpaceInUser.userIsLoggedIn() {
@@ -316,19 +299,10 @@ extension MapView: MKMapViewDelegate {
                 }
                 annotationView?.isDraggable = true
                 annotationView?.canShowCallout = false
-//
-//                let drag = UILongPressGestureRecognizer(target: self.mapViewController, action: #selector(self.lognPressed(gesture:)))
-//                drag.minimumPressDuration = 0.3
-//                drag.delegate = self.mapViewController
-//                annotationView?.addGestureRecognizer(drag)
                 
             }
             
         } else {
-//            guard let userAnnotation = annotation as? SpaceUserAnnotation else {
-//                return nil
-//            }
-//            annotationView = SpaceUserAnnotationView(annotation: userAnnotation, user: userAnnotation.user, mapProfileName: AssetName.transparentPin.rawValue)
         }
         
         
@@ -353,7 +327,7 @@ extension MapView: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if self.didFinishLoadingMap && self.shouldRemoveUserPinOnMovement {
-            self.removeOtherUsersPin()
+            
             self.coordinate = self.centerCoordinate
             NotificationCenter.default.post(name: .FetchUsers, object: nil)
             
@@ -367,8 +341,6 @@ extension MapView: MKMapViewDelegate {
             
             print("dragMapDelegate")
         }
-        
-        
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
@@ -417,10 +389,6 @@ extension MapView: MKMapViewDelegate {
             }
             
         }
-        
-//        if self.viewIsUserAnnotaionView(view: view) {
-//            self.zoomToUserPin()
-//        }
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
@@ -433,9 +401,6 @@ extension MapView: MKMapViewDelegate {
                 print("dragStart")
                 
                 annotationView.dragState = .canceling
-//                annotationView.dragState = .none
-                
-//                self.mapViewController?.presentPostHistoryController(user: annotationView.user!)
                 
             } else if newState == .ending || newState == .canceling {
                 self.mapViewController?.presentPostHistoryController(user: annotationView.user!)
@@ -464,8 +429,6 @@ extension MapView {
 extension MapView {
     
     fileprivate func getRadius(centerCoordinate: CLLocationCoordinate2D) -> Double {
-        
-        let center = centerCoordinate
         
         let centerCoor = self.getCenterCoordinate()
         let centerLocation = CLLocation(latitude: centerCoor.latitude, longitude: centerCoor.longitude)
@@ -500,7 +463,6 @@ extension MapView {
     fileprivate func getTopCenterCoordinate() -> CLLocationCoordinate2D {
         
         let point = CGPoint(x: self.frame.size.width / 2.0, y: 0)
-//        let point = CGPoint(x: 0, y: self.frame.size.height / 2.0)
         return self.convert(point, toCoordinateFrom: self)
     }
     

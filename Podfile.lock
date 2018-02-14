@@ -1,7 +1,4 @@
 PODS:
-  - Crashlytics (3.8.5):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.12)
   - Firebase/Auth (4.0.4):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -71,12 +68,11 @@ PODS:
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
+  - SendGrid (1.0.1)
   - Shimmer (1.0.2)
   - skpsmtpmessage (0.0.1)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database (~> 4.0.0)
@@ -86,21 +82,25 @@ DEPENDENCIES:
   - NDParallaxIntroView
   - OneSignal
   - SDWebImage (~> 3.8)
+  - SendGrid (from `https://github.com/scottkawai/sendgrid-swift.git`)
   - Shimmer (~> 1.0)
   - skpsmtpmessage
 
 EXTERNAL SOURCES:
   GeoFire:
     :git: https://github.com/firebase/geofire-objc.git
+  SendGrid:
+    :git: https://github.com/scottkawai/sendgrid-swift.git
 
 CHECKOUT OPTIONS:
   GeoFire:
     :commit: 96d6463f59016785f9c5ae9b669019c44786a23f
     :git: https://github.com/firebase/geofire-objc.git
+  SendGrid:
+    :commit: 1cdf6bd19146db47acc15130db6b48597c3e8e30
+    :git: https://github.com/scottkawai/sendgrid-swift.git
 
 SPEC CHECKSUMS:
-  Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
-  Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
   Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -121,9 +121,10 @@ SPEC CHECKSUMS:
   NDParallaxIntroView: fecbf871a0fe9c72dc53e644d0735fb49dd87a78
   OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SendGrid: 528eec5409d2a424c763b6b18f5d0078ba73761d
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   skpsmtpmessage: f6e913380c784dd8d4a9f83c8790a302445a5e05
 
-PODFILE CHECKSUM: 5860af45ac7a717b86ccab5d63b26c5940a92a0a
+PODFILE CHECKSUM: 0024d66380bfaf5143e995936d042a6408da416c
 
 COCOAPODS: 1.3.1

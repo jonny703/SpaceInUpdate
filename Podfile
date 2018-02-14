@@ -15,11 +15,10 @@ target 'SpaceIn' do
   pod 'Shimmer', '~> 1.0'
   pod 'SDWebImage', '~>3.8'
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
-  pod 'Fabric'
-  pod 'Crashlytics'
   pod 'NDParallaxIntroView'
   pod 'OneSignal'
   pod 'skpsmtpmessage'
+  pod 'SendGrid', :git => 'https://github.com/scottkawai/sendgrid-swift.git'
 end
 
 target 'OneSignalNotificationServiceExtension' do
